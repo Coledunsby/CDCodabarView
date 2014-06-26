@@ -11,8 +11,14 @@
 @interface CDCodabarView : UIView
 
 - (id)initWithCode:(NSString *)code startChar:(char)start stopChar:(char)stop;
+- (void)setCode:(NSString *)code startChar:(char)start stopChar:(char)stop;
 
-@property (nonatomic, retain) UIColor *barColor;
-@property (nonatomic, assign) BOOL showCode;
+@property (nonatomic, strong, readonly) NSString *code;
+@property (nonatomic, assign, readonly) char startChar;
+@property (nonatomic, assign, readonly) char stopChar;
+
+@property (nonatomic, strong) UIColor *barColor;
+@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, assign) BOOL hideCode;
 
 @end

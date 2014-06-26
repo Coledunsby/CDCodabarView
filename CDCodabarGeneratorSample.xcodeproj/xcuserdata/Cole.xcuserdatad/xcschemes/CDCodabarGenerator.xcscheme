@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EDB2545318FFAA7600FFD9EF"
-               BuildableName = "CDCodabarGenerator.app"
-               BlueprintName = "CDCodabarGenerator"
-               ReferencedContainer = "container:CDCodabarGenerator.xcodeproj">
+               BuildableName = "CDCodabarGeneratorSample.app"
+               BlueprintName = "CDCodabarGeneratorSample"
+               ReferencedContainer = "container:CDCodabarGeneratorSample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "EDB2547718FFAA7600FFD9EF"
                BuildableName = "CDCodabarGeneratorTests.xctest"
                BlueprintName = "CDCodabarGeneratorTests"
-               ReferencedContainer = "container:CDCodabarGenerator.xcodeproj">
+               ReferencedContainer = "container:CDCodabarGeneratorSample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EDB2545318FFAA7600FFD9EF"
-            BuildableName = "CDCodabarGenerator.app"
-            BlueprintName = "CDCodabarGenerator"
-            ReferencedContainer = "container:CDCodabarGenerator.xcodeproj">
+            BuildableName = "CDCodabarGeneratorSample.app"
+            BlueprintName = "CDCodabarGeneratorSample"
+            ReferencedContainer = "container:CDCodabarGeneratorSample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EDB2545318FFAA7600FFD9EF"
-            BuildableName = "CDCodabarGenerator.app"
-            BlueprintName = "CDCodabarGenerator"
-            ReferencedContainer = "container:CDCodabarGenerator.xcodeproj">
+            BuildableName = "CDCodabarGeneratorSample.app"
+            BlueprintName = "CDCodabarGeneratorSample"
+            ReferencedContainer = "container:CDCodabarGeneratorSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EDB2545318FFAA7600FFD9EF"
-            BuildableName = "CDCodabarGenerator.app"
-            BlueprintName = "CDCodabarGenerator"
-            ReferencedContainer = "container:CDCodabarGenerator.xcodeproj">
+            BuildableName = "CDCodabarGeneratorSample.app"
+            BlueprintName = "CDCodabarGeneratorSample"
+            ReferencedContainer = "container:CDCodabarGeneratorSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
