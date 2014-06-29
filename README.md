@@ -1,8 +1,6 @@
 CDCodabarGenerator
 ==================
 
-Codabar Barcode Generator for iOS.
-
 How to use...
 ------------------
 
@@ -35,5 +33,3 @@ How to use...
     ```
     [self.view addSubview:self.codabarView];
     ```
-
-__See the sample app for a complete example.__
