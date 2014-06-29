@@ -19,6 +19,10 @@
 
 @property (nonatomic, strong) UIColor *barColor;
 @property (nonatomic, strong) UIColor *textColor;
+
+@property (nonatomic, assign) float barHeight;
+@property (nonatomic, assign) float barWidth;
+@property (nonatomic, assign) float padding;
 @property (nonatomic, assign) BOOL hideCode;
 
 @end

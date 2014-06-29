@@ -43,10 +43,6 @@
  
 **********************************************************/
 
-#define BAR_WIDTH 2.0f
-#define PADDING 10.0f
-#define HEIGHT 40.0f
-
 @interface CDCodabarView ()
 
 @property (nonatomic, strong, readwrite) NSString *code;
@@ -68,11 +64,14 @@
     
     if (self)
     {
-        [self setCode:code startChar:start stopChar:stop];
-
         self.barColor = [UIColor blackColor];
         self.textColor = [UIColor blackColor];
+        self.barHeight = 40.0f;
+        self.barWidth = 2.0f;
+        self.padding = 10.0f;
         self.hideCode = NO;
+        
+        [self setCode:code startChar:start stopChar:stop];
         
         self.backgroundColor = [UIColor clearColor];
         
@@ -140,11 +139,11 @@
             
             if (character == '0')
             {
-                x += BAR_WIDTH;
+                x += self.barWidth;
             }
             else
             {
-                float barWidth = BAR_WIDTH;
+                float barWidth = self.barWidth;
                 
                 if (i < [string length] - 1)
                 {
@@ -154,7 +153,7 @@
                     }
                 }
                 
-                UIView *bar = [[UIView alloc] initWithFrame:CGRectMake(x, 0, barWidth, HEIGHT)];
+                UIView *bar = [[UIView alloc] initWithFrame:CGRectMake(x, 0, barWidth, self.barHeight)];
                 bar.backgroundColor = self.barColor;
                 [self.barcodeView addSubview:bar];
                 
@@ -164,14 +163,14 @@
         
         self.codeLabel.text = code;
         [self.codeLabel sizeToFit];
-        self.codeLabel.center = CGPointMake(0, HEIGHT + PADDING + (self.codeLabel.frame.size.height / 2) + 5);
+        self.codeLabel.center = CGPointMake(0, self.padding + self.barHeight + (self.codeLabel.frame.size.height / 2) + (self.padding / 2));
         
-        self.barcodeView.frame = CGRectMake(0, 0, x, HEIGHT);
+        self.barcodeView.frame = CGRectMake(0, 0, x, self.barHeight);
         
-        self.frame = CGRectMake(0, 0, self.barcodeView.frame.size.width + (2 * PADDING), self.codeLabel.frame.origin.y + self.codeLabel.frame.size.height + PADDING);
+        self.frame = CGRectMake(0, 0, self.barcodeView.frame.size.width + (2 * self.padding), self.codeLabel.frame.origin.y + self.codeLabel.frame.size.height + self.padding);
         
-        self.barcodeView.center = CGPointMake(self.center.x, self.barcodeView.center.y + PADDING);
-        self.codeLabel.center = CGPointMake(self.barcodeView.center.x, HEIGHT + PADDING + (self.codeLabel.frame.size.height / 2) + 5);
+        self.barcodeView.center = CGPointMake(self.center.x, self.barcodeView.center.y + self.padding);
+        self.codeLabel.center = CGPointMake(self.barcodeView.center.x, self.padding + self.barHeight + (self.codeLabel.frame.size.height / 2) + (self.padding / 2));
     }
 }
 
@@ -198,6 +197,16 @@
     return (validCode && validStart && validStop);
 }
 
+- (void)redraw
+{
+    if (self.superview)
+    {
+        CGPoint center = self.center;
+        [self setCode:self.code startChar:self.startChar stopChar:self.stopChar];
+        self.center = center;
+    }
+}
+
 #pragma mark - Custom Setters
 
 - (void)setBarColor:(UIColor *)barColor
@@ -214,6 +223,27 @@
     _textColor = textColor;
     
     self.codeLabel.textColor = textColor;
+}
+
+- (void)setBarHeight:(float)barHeight
+{
+    _barHeight = barHeight;
+    
+    [self redraw];
+}
+
+- (void)setBarWidth:(float)barWidth
+{
+    _barWidth = barWidth;
+    
+    [self redraw];
+}
+
+- (void)setPadding:(float)padding
+{
+    _padding = padding;
+    
+    [self redraw];
 }
 
 - (void)setHideCode:(BOOL)hideCode

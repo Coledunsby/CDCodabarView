@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED86E1B1195FC91900275B9D /* CDCodabarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED86E1B0195FC91900275B9D /* CDCodabarView.m */; };
 		EDB2545818FFAA7600FFD9EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB2545718FFAA7600FFD9EF /* Foundation.framework */; };
 		EDB2545A18FFAA7600FFD9EF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB2545918FFAA7600FFD9EF /* CoreGraphics.framework */; };
 		EDB2545C18FFAA7600FFD9EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB2545B18FFAA7600FFD9EF /* UIKit.framework */; };
@@ -15,11 +16,12 @@
 		EDB2546818FFAA7600FFD9EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB2546718FFAA7600FFD9EF /* AppDelegate.m */; };
 		EDB2547118FFAA7600FFD9EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB2547018FFAA7600FFD9EF /* ViewController.m */; };
 		EDB2547318FFAA7600FFD9EF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDB2547218FFAA7600FFD9EF /* Images.xcassets */; };
-		EDB2549118FFAAC000FFD9EF /* CDCodabarView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB2549018FFAAC000FFD9EF /* CDCodabarView.m */; };
 		EDE682601955E329001AE657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE6825F1955E329001AE657 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED86E1AF195FC91900275B9D /* CDCodabarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCodabarView.h; sourceTree = "<group>"; };
+		ED86E1B0195FC91900275B9D /* CDCodabarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCodabarView.m; sourceTree = "<group>"; };
 		EDB2545418FFAA7600FFD9EF /* CDCodabarGeneratorSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CDCodabarGeneratorSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB2545718FFAA7600FFD9EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EDB2545918FFAA7600FFD9EF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -34,8 +36,6 @@
 		EDB2547018FFAA7600FFD9EF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EDB2547218FFAA7600FFD9EF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EDB2547918FFAA7600FFD9EF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		EDB2548F18FFAAC000FFD9EF /* CDCodabarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCodabarView.h; sourceTree = "<group>"; };
-		EDB2549018FFAAC000FFD9EF /* CDCodabarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCodabarView.m; sourceTree = "<group>"; };
 		EDE6825F1955E329001AE657 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,6 +53,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED86E1AE195FC91900275B9D /* CDCodabarView */ = {
+			isa = PBXGroup;
+			children = (
+				ED86E1AF195FC91900275B9D /* CDCodabarView.h */,
+				ED86E1B0195FC91900275B9D /* CDCodabarView.m */,
+			);
+			name = CDCodabarView;
+			path = ../../CDCodabarView;
+			sourceTree = "<group>";
+		};
 		EDB2544B18FFAA7600FFD9EF = {
 			isa = PBXGroup;
 			children = (
@@ -84,7 +94,7 @@
 		EDB2545D18FFAA7600FFD9EF /* CDCodabarGeneratorSample */ = {
 			isa = PBXGroup;
 			children = (
-				EDE6825E1955E2EC001AE657 /* CDCodabarGenerator */,
+				ED86E1AE195FC91900275B9D /* CDCodabarView */,
 				EDB2546618FFAA7600FFD9EF /* AppDelegate.h */,
 				EDB2546718FFAA7600FFD9EF /* AppDelegate.m */,
 				EDB2546F18FFAA7600FFD9EF /* ViewController.h */,
@@ -106,15 +116,6 @@
 				EDB2546518FFAA7600FFD9EF /* CDCodabarGeneratorSample-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EDE6825E1955E2EC001AE657 /* CDCodabarGenerator */ = {
-			isa = PBXGroup;
-			children = (
-				EDB2548F18FFAAC000FFD9EF /* CDCodabarView.h */,
-				EDB2549018FFAAC000FFD9EF /* CDCodabarView.m */,
-			);
-			name = CDCodabarGenerator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,7 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDB2549118FFAAC000FFD9EF /* CDCodabarView.m in Sources */,
+				ED86E1B1195FC91900275B9D /* CDCodabarView.m in Sources */,
 				EDB2547118FFAA7600FFD9EF /* ViewController.m in Sources */,
 				EDB2546818FFAA7600FFD9EF /* AppDelegate.m in Sources */,
 				EDB2546418FFAA7600FFD9EF /* main.m in Sources */,
