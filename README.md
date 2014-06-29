@@ -3,8 +3,6 @@ CDCodabarGenerator
 
 Codabar Barcode Generator for iOS.
 
----
-
 How to use...
 ------------------
 
@@ -20,8 +18,8 @@ How to use...
 
     ```
     CDCodabarView *codabarView = [[CDCodabarView alloc] initWithCode:@"123456789"
-                                                       startChar:'A'
-                                                        stopChar:'B'];
+                                                           startChar:'A'
+                                                            stopChar:'B'];
     ```
 
 4. Customize the barcode.
@@ -38,6 +36,4 @@ How to use...
     [self.view addSubview:self.codabarView];
     ```
 
----
-
-See the sample app for a complete example.
+__See the sample app for a complete example.__
