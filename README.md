@@ -1,6 +1,14 @@
 CDCodabarView
 ==================
 
+What is it?
+------------------
+
+CDCodabarView is a [Codabar](https://en.wikipedia.org/wiki/Codabar) barcode generator for iOS.
+
+It is written in Swift 2 and uses `IBDesignable`, `IBInspectable` and Core Graphics.
+
+
 Using Storyboards
 ------------------
 
