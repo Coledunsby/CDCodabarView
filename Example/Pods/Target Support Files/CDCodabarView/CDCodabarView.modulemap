@@ -1,0 +1,6 @@
+framework module CDCodabarView {
+  umbrella header "CDCodabarView-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -48,3 +48,36 @@ Programmatically
     ```
     view.addSubview(codabarView)
     ```
+
+
+
+
+# CDCodabarView
+
+[![CI Status](http://img.shields.io/travis/Cole Dunsby/CDCodabarView.svg?style=flat)](https://travis-ci.org/Cole Dunsby/CDCodabarView)
+[![Version](https://img.shields.io/cocoapods/v/CDCodabarView.svg?style=flat)](http://cocoapods.org/pods/CDCodabarView)
+[![License](https://img.shields.io/cocoapods/l/CDCodabarView.svg?style=flat)](http://cocoapods.org/pods/CDCodabarView)
+[![Platform](https://img.shields.io/cocoapods/p/CDCodabarView.svg?style=flat)](http://cocoapods.org/pods/CDCodabarView)
+
+## Usage
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+## Installation
+
+CDCodabarView is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "CDCodabarView"
+```
+
+## Author
+
+Cole Dunsby, coledunsby@gmail.com
+
+## License
+
+CDCodabarView is available under the MIT license. See the LICENSE file for more info.

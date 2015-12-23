@@ -1,0 +1,10 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'CDCodabarView_Example', :exclusive => true do
+  pod "CDCodabarView", :path => "../"
+end
+
+target 'CDCodabarView_Tests', :exclusive => true do
+  pod "CDCodabarView", :path => "../"  
+end

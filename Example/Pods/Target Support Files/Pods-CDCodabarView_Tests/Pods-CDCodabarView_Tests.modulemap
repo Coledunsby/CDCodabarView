@@ -1,0 +1,6 @@
+framework module Pods_CDCodabarView_Tests {
+  umbrella header "Pods-CDCodabarView_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
