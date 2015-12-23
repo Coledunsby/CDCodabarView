@@ -44,7 +44,7 @@
 import UIKit
 
 @IBDesignable
-class CDCodabarView: UIView {
+public class CDCodabarView: UIView {
 
     private let barcodeEncoding = [
         "0": "101010011",
@@ -69,27 +69,27 @@ class CDCodabarView: UIView {
         "D": "1010011001"
     ]
 
-    @IBInspectable var code: String = "A123456789B" {
+    @IBInspectable public var code: String = "A123456789B" {
         didSet { setNeedsDisplay() }
     }
     
-    @IBInspectable var barColor: UIColor = .blackColor() {
+    @IBInspectable public var barColor: UIColor = .blackColor() {
         didSet { setNeedsDisplay() }
     }
     
-    @IBInspectable var textColor: UIColor = .blackColor() {
+    @IBInspectable public var textColor: UIColor = .blackColor() {
         didSet { setNeedsDisplay() }
     }
     
-    @IBInspectable var padding: CGFloat = 2.0 {
+    @IBInspectable public var padding: CGFloat = 2.0 {
         didSet { setNeedsDisplay() }
     }
     
-    @IBInspectable var hideCode: Bool = false {
+    @IBInspectable public var hideCode: Bool = false {
         didSet { setNeedsDisplay() }
     }
     
-    var font = UIFont(name: "AvenirNext-Regular", size: 15.0)! {
+    public var font = UIFont(name: "AvenirNext-Regular", size: 15.0)! {
         didSet { setNeedsDisplay() }
     }
     
@@ -97,11 +97,11 @@ class CDCodabarView: UIView {
         super.init(frame: frame)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override func drawRect(rect: CGRect) {
+    override public func drawRect(rect: CGRect) {
         let paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
         paragraphStyle.alignment = NSTextAlignment.Center
         

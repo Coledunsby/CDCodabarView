@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CDCodabarView
 
 class ViewController: UIViewController {
 
