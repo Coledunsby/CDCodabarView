@@ -1,15 +1,14 @@
 {
   "name": "CDCodabarView",
   "version": "0.1.0",
-  "summary": "A short description of CDCodabarView.",
-  "description": "",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/CDCodabarView",
+  "summary": "Codabar Barcode Generator for iOS.",
+  "homepage": "https://github.com/Coledunsby/CDCodabarView",
   "license": "MIT",
   "authors": {
     "Cole Dunsby": "coledunsby@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/CDCodabarView.git",
+    "git": "https://github.com/Coledunsby/CDCodabarView.git",
     "tag": "0.1.0"
   },
   "platforms": {
@@ -17,9 +16,4 @@
   },
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
-  "resource_bundles": {
-    "CDCodabarView": [
-      "Pod/Assets/*.png"
-    ]
-  }
 }
