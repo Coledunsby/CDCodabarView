@@ -102,14 +102,28 @@ class CDCodabarView: UIView {
     }
     
     override func drawRect(rect: CGRect) {
+        let paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
+        paragraphStyle.alignment = NSTextAlignment.Center
+        
+        let attributes = [
+            NSFontAttributeName: font,
+            NSForegroundColorAttributeName: textColor,
+            NSParagraphStyleAttributeName: paragraphStyle,
+        ]
+        
         if !codeIsValid() {
+            let text = "Invalid Code"
+            let textSize = text.boundingRectWithSize(CGSize(width: bounds.size.width, height: CGFloat.max), options: [.TruncatesLastVisibleLine, .UsesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil)
+            
+            text.drawAtPoint(CGPoint(x: bounds.size.width / 2 - textSize.width / 2, y: bounds.size.height / 2 - textSize.height / 2), withAttributes: attributes)
+            
             return
         }
         
         barColor.setFill()
         
         let multiplier: CGFloat = 1.25
-        let labelHeight = ceil((code as NSString).boundingRectWithSize(CGSize(width: bounds.size.width, height: CGFloat.max), options: [.TruncatesLastVisibleLine, .UsesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil).size.height)
+        let labelHeight = ceil(code.boundingRectWithSize(CGSize(width: bounds.size.width, height: CGFloat.max), options: [.TruncatesLastVisibleLine, .UsesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil).height)
         let barHeight = bounds.size.height - (hideCode ? 0 : labelHeight + padding)
         let sequence = barSequence()
         
@@ -155,15 +169,6 @@ class CDCodabarView: UIView {
         }
         
         if !hideCode {
-            let paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-            paragraphStyle.alignment = NSTextAlignment.Center
-            
-            let attributes = [
-                NSFontAttributeName: font,
-                NSForegroundColorAttributeName: textColor,
-                NSParagraphStyleAttributeName: paragraphStyle,
-            ]
-            
             (code as NSString).drawInRect(CGRect(x: 0, y: barHeight + padding, width: x, height: labelHeight), withAttributes: attributes)
         }
     }
