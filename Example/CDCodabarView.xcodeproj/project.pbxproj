@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		58FE619F55788F5BAB715F84 /* Pods_CDCodabarView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163AF7766BECAD3ED0505529 /* Pods_CDCodabarView_Tests.framework */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		ED27DBA01C2B52C000473779 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED27DB9D1C2B52C000473779 /* AppDelegate.swift */; };
-		ED27DBA11C2B52C000473779 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED27DB9E1C2B52C000473779 /* Main.storyboard */; };
-		ED27DBA21C2B52C000473779 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED27DB9F1C2B52C000473779 /* ViewController.swift */; };
+		ED27DBAE1C2B5A3500473779 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED27DBA91C2B5A3500473779 /* AppDelegate.swift */; };
+		ED27DBAF1C2B5A3500473779 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED27DBAA1C2B5A3500473779 /* Images.xcassets */; };
+		ED27DBB11C2B5A3500473779 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED27DBAC1C2B5A3500473779 /* Main.storyboard */; };
+		ED27DBB21C2B5A3500473779 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED27DBAD1C2B5A3500473779 /* ViewController.swift */; };
+		ED27DBB41C2B5BFD00473779 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED27DBB31C2B5BFD00473779 /* LaunchScreen.storyboard */; };
 		FD7D937640F133BA43C92B89 /* Pods_CDCodabarView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882F31BC9E5EA74C8D474F7A /* Pods_CDCodabarView_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,8 +32,7 @@
 		163AF7766BECAD3ED0505529 /* Pods_CDCodabarView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDCodabarView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24583C4AC57197B29C83B373 /* Pods-CDCodabarView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDCodabarView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CDCodabarView_Tests/Pods-CDCodabarView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* CDCodabarView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CDCodabarView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Tests.xctest; path = CDCodabarView_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACE51AFB9204008FA782 /* CDCodabarView_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDCodabarView_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		882F31BC9E5EA74C8D474F7A /* Pods_CDCodabarView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDCodabarView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,9 +40,12 @@
 		C77FD095D673088B91734BD8 /* CDCodabarView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CDCodabarView.podspec; path = ../CDCodabarView.podspec; sourceTree = "<group>"; };
 		CA6766331E6A3567BE364353 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D04B788AE0ABEC9A4A2B32E4 /* Pods-CDCodabarView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDCodabarView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CDCodabarView_Example/Pods-CDCodabarView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		ED27DB9D1C2B52C000473779 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED27DB9E1C2B52C000473779 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		ED27DB9F1C2B52C000473779 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ED27DBA91C2B5A3500473779 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = CDCodabarView_Example/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		ED27DBAA1C2B5A3500473779 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CDCodabarView_Example/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		ED27DBAB1C2B5A3500473779 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CDCodabarView_Example/Info.plist; sourceTree = SOURCE_ROOT; };
+		ED27DBAC1C2B5A3500473779 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = CDCodabarView_Example/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		ED27DBAD1C2B5A3500473779 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = CDCodabarView_Example/ViewController.swift; sourceTree = SOURCE_ROOT; };
+		ED27DBB31C2B5BFD00473779 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = CDCodabarView_Example/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		FD97358F6C3EDA71C2263EAE /* Pods-CDCodabarView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDCodabarView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CDCodabarView_Tests/Pods-CDCodabarView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,7 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* CDCodabarView_Example.app */,
-				607FACE51AFB9204008FA782 /* Tests.xctest */,
+				607FACE51AFB9204008FA782 /* CDCodabarView_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,10 +102,12 @@
 		607FACD21AFB9204008FA782 /* Example for CDCodabarView */ = {
 			isa = PBXGroup;
 			children = (
-				ED27DB9D1C2B52C000473779 /* AppDelegate.swift */,
-				ED27DB9E1C2B52C000473779 /* Main.storyboard */,
-				ED27DB9F1C2B52C000473779 /* ViewController.swift */,
-				607FACD41AFB9204008FA782 /* Info.plist */,
+				ED27DBA91C2B5A3500473779 /* AppDelegate.swift */,
+				ED27DBAD1C2B5A3500473779 /* ViewController.swift */,
+				ED27DBAC1C2B5A3500473779 /* Main.storyboard */,
+				ED27DBB31C2B5BFD00473779 /* LaunchScreen.storyboard */,
+				ED27DBAA1C2B5A3500473779 /* Images.xcassets */,
+				ED27DBAB1C2B5A3500473779 /* Info.plist */,
 			);
 			name = "Example for CDCodabarView";
 			path = CDCodabarView;
@@ -186,7 +192,7 @@
 			);
 			name = CDCodabarView_Tests;
 			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* Tests.xctest */;
+			productReference = 607FACE51AFB9204008FA782 /* CDCodabarView_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -196,7 +202,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
@@ -232,7 +238,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED27DBA11C2B52C000473779 /* Main.storyboard in Resources */,
+				ED27DBB41C2B5BFD00473779 /* LaunchScreen.storyboard in Resources */,
+				ED27DBB11C2B5A3500473779 /* Main.storyboard in Resources */,
+				ED27DBAF1C2B5A3500473779 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,8 +351,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED27DBA21C2B52C000473779 /* ViewController.swift in Sources */,
-				ED27DBA01C2B52C000473779 /* AppDelegate.swift in Sources */,
+				ED27DBB21C2B5A3500473779 /* ViewController.swift in Sources */,
+				ED27DBAE1C2B5A3500473779 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +396,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -452,10 +461,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D04B788AE0ABEC9A4A2B32E4 /* Pods-CDCodabarView_Example.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = CDCodabarView/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CDCodabarView_Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -465,10 +476,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0959A6BE6CCA9C96C0189A07 /* Pods-CDCodabarView_Example.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = CDCodabarView/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CDCodabarView_Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -488,6 +501,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CDCodabarView_Example.app/CDCodabarView_Example";
 			};
@@ -504,6 +518,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CDCodabarView_Example.app/CDCodabarView_Example";
 			};
