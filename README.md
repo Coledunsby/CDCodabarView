@@ -1,28 +1,42 @@
-CDCodabarView
-==================
+# CDCodabarView
 
-What is it?
-------------------
+[![Version](https://img.shields.io/cocoapods/v/CDCodabarView.svg?style=flat)](http://cocoapods.org/pods/CDCodabarView)
+[![License](https://img.shields.io/cocoapods/l/CDCodabarView.svg?style=flat)](http://cocoapods.org/pods/CDCodabarView)
+[![Platform](https://img.shields.io/cocoapods/p/CDCodabarView.svg?style=flat)](http://cocoapods.org/pods/CDCodabarView)
+
+##What is it?
 
 CDCodabarView is a [Codabar](https://en.wikipedia.org/wiki/Codabar) barcode generator for iOS.
 
 It is written in Swift 2 and uses `IBDesignable`, `IBInspectable` and Core Graphics.
 
 
-Using Storyboards
-------------------
+## Installation
 
-1. Copy the CDCodabarView folder into your project.
-2. Drag a UIView into your storyboard.
-3. Change the class of the UIView to `CDCodabarView`.
-4. Customize your barcode using the inspector.
+CDCodabarView is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+
+```
+pod 'CDCodabarView'
+```
+
+Alternatively, you can install it manually by copying the file `Pod/Classes/CDCodabarView.swift` into your project.
+
+
+## Usage (Storyboards)
+
+1. Drag a UIView into your storyboard.
+2. Change the class of the UIView to `CDCodabarView`.
+3. Customize your barcode using the inspector.
 
 ![alt tag](https://github.com/Coledunsby/CDCodabarView/blob/master/Images/Storyboard.png)
 
-Programmatically
-------------------
+## Usage (Programmatically)
 
-1. Copy the CDCodabarView folder into your project.
+1. Import the module:
+
+    ```
+    import CDCodabarView
+    ```
 
 2. Initialize an instance of CDCodaBarViewController using the constructor:
 
@@ -48,31 +62,6 @@ Programmatically
     ```
     view.addSubview(codabarView)
     ```
-
-
-
-
-# CDCodabarView
-
-[![CI Status](http://img.shields.io/travis/Cole Dunsby/CDCodabarView.svg?style=flat)](https://travis-ci.org/Cole Dunsby/CDCodabarView)
-[![Version](https://img.shields.io/cocoapods/v/CDCodabarView.svg?style=flat)](http://cocoapods.org/pods/CDCodabarView)
-[![License](https://img.shields.io/cocoapods/l/CDCodabarView.svg?style=flat)](http://cocoapods.org/pods/CDCodabarView)
-[![Platform](https://img.shields.io/cocoapods/p/CDCodabarView.svg?style=flat)](http://cocoapods.org/pods/CDCodabarView)
-
-## Usage
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
-## Installation
-
-CDCodabarView is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "CDCodabarView"
-```
 
 ## Author
 
