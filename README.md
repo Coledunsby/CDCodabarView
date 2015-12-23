@@ -1,13 +1,23 @@
 CDCodabarView
 ==================
 
+What is it?
+------------------
+
+CDCodabarView is a [Codabar](https://en.wikipedia.org/wiki/Codabar) barcode generator for iOS.
+
+It is written in Swift 2 and uses `IBDesignable`, `IBInspectable` and Core Graphics.
+
+
 Using Storyboards
 ------------------
 
 1. Copy the CDCodabarView folder into your project.
 2. Drag a UIView into your storyboard.
-3. Change the class of the UIView to CDCodabarView.
+3. Change the class of the UIView to `CDCodabarView`.
 4. Customize your barcode using the inspector.
+
+![alt tag](https://github.com/Coledunsby/CDCodabarView/blob/master/Images/Storyboard.png)
 
 Programmatically
 ------------------
