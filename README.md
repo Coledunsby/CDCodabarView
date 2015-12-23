@@ -9,6 +9,8 @@ Using Storyboards
 3. Change the class of the UIView to CDCodabarView.
 4. Customize your barcode using the inspector.
 
+![alt tag](https://github.com/Coledunsby/CDCodabarView/blob/master/Images/Storyboard.png)
+
 Programmatically
 ------------------
 
