@@ -1,35 +1,40 @@
-CDCodabarGenerator
+CDCodabarView
 ==================
 
-How to use...
+Using Storyboards
+------------------
+
+1. Copy the CDCodabarView folder into your project.
+2. Drag a UIView into your storyboard.
+3. Change the class of the UIView to CDCodabarView.
+4. Customize your barcode using the inspector.
+
+Programmatically
 ------------------
 
 1. Copy the CDCodabarView folder into your project.
 
-2. Import the CDCodabarView header file in the view controller you want to show the barcode.
+2. Initialize an instance of CDCodaBarViewController using the constructor:
 
     ```
-    #import "CDCodabarView.h"
-    ```
-
-3. Initialize an instance of CDCodaBarViewController using the constructor:
-
-    ```
-    CDCodabarView *codabarView = [[CDCodabarView alloc] initWithCode:@"123456789"
-                                                           startChar:'A'
-                                                            stopChar:'B'];
+    let codabarView = CDCodabarView()
+    codabarView.frame = CGRect(x: 0, y: 0, width: 200, height: 100)
+    codabarView.code = "A12345B"
+    codabarView.backgroundColor = .whiteColor()
     ```
 
 4. Customize the barcode.
 
     ```
-    codabarView.barColor = [UIColor blueColor];
-    codabarView.textColor = [UIColor redColor];
-    codabarView.hideCode = NO;
+    codabarView.barColor = .blueColor()
+    codabarView.textColor = .redColor()
+    codabarView.padding = 5
+    codabarView.hideCode = false
+    codabarView.font = UIFont(name: "AvenirNext-Regular", size: 15.0)!
     ```
 
 5. Add the barcode to your view.
 
     ```
-    [self.view addSubview:self.codabarView];
+    view.addSubview(codabarView)
     ```
