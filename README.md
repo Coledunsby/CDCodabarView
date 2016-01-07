@@ -6,7 +6,7 @@
 [![Language](http://img.shields.io/badge/language-swift-orange.svg?style=flat
              )](https://developer.apple.com/swift/)
 
-##What is it?
+## What is it?
 
 CDCodabarView is a [Codabar](https://en.wikipedia.org/wiki/Codabar) barcode generator for iOS.
 
