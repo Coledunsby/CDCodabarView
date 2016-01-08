@@ -40,7 +40,7 @@ Alternatively, you can install it manually by copying the file `Pod/Classes/CDCo
     import CDCodabarView
     ```
 
-2. Initialize an instance of CDCodaBarViewController using the constructor:
+2. Initialize an instance of `CDCodabarView` using the constructor:
 
     ```
     let codabarView = CDCodabarView()
@@ -49,7 +49,7 @@ Alternatively, you can install it manually by copying the file `Pod/Classes/CDCo
     codabarView.backgroundColor = .whiteColor()
     ```
 
-4. Customize the barcode.
+3. Customize the barcode:
 
     ```
     codabarView.barColor = .blueColor()
@@ -59,7 +59,7 @@ Alternatively, you can install it manually by copying the file `Pod/Classes/CDCo
     codabarView.font = UIFont(name: "AvenirNext-Regular", size: 15.0)!
     ```
 
-5. Add the barcode to your view.
+4. Add the barcode to your view:
 
     ```
     view.addSubview(codabarView)
