@@ -3,7 +3,7 @@
 //  CDCodabarViewSample
 //
 //  Created by Cole Dunsby on 2015-12-21.
-//  Copyright © 2015 Cole Dunsby. All rights reserved.
+//  Copyright © 2016 Cole Dunsby. All rights reserved.
 //
 
 /*********************************************************************
@@ -69,29 +69,13 @@ public class CDCodabarView: UIView {
         "D": "1010011001"
     ]
 
-    @IBInspectable public var code: String = "A123456789B" {
-        didSet { setNeedsDisplay() }
-    }
+    @IBInspectable public var code: String = "A123456789B" { didSet { setNeedsDisplay() }}
+    @IBInspectable public var barColor: UIColor = .black { didSet { setNeedsDisplay() }}
+    @IBInspectable public var textColor: UIColor = .black { didSet { setNeedsDisplay() }}
+    @IBInspectable public var padding: CGFloat = 2.0 { didSet { setNeedsDisplay() }}
+    @IBInspectable public var hideCode: Bool = false { didSet { setNeedsDisplay() }}
     
-    @IBInspectable public var barColor: UIColor = .blackColor() {
-        didSet { setNeedsDisplay() }
-    }
-    
-    @IBInspectable public var textColor: UIColor = .blackColor() {
-        didSet { setNeedsDisplay() }
-    }
-    
-    @IBInspectable public var padding: CGFloat = 2.0 {
-        didSet { setNeedsDisplay() }
-    }
-    
-    @IBInspectable public var hideCode: Bool = false {
-        didSet { setNeedsDisplay() }
-    }
-    
-    public var font = UIFont(name: "AvenirNext-Regular", size: 15.0)! {
-        didSet { setNeedsDisplay() }
-    }
+    public var font = UIFont(name: "AvenirNext-Regular", size: 15.0)! { didSet { setNeedsDisplay() }}
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -101,21 +85,21 @@ public class CDCodabarView: UIView {
         super.init(coder: aDecoder)
     }
     
-    override public func drawRect(rect: CGRect) {
-        let paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-        paragraphStyle.alignment = NSTextAlignment.Center
+    override public func draw(_ rect: CGRect) {
+        let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        paragraphStyle.alignment = .center
         
         let attributes = [
             NSFontAttributeName: font,
             NSForegroundColorAttributeName: textColor,
             NSParagraphStyleAttributeName: paragraphStyle,
-        ]
+        ] as [String : Any]
         
-        if !codeIsValid() {
+        if !isCodeValid() {
             let text = "Invalid Code"
-            let textSize = text.boundingRectWithSize(CGSize(width: bounds.size.width, height: CGFloat.max), options: [.TruncatesLastVisibleLine, .UsesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil)
+            let textSize = text.boundingRect(with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil)
             
-            text.drawAtPoint(CGPoint(x: bounds.size.width / 2 - textSize.width / 2, y: bounds.size.height / 2 - textSize.height / 2), withAttributes: attributes)
+            text.draw(at: CGPoint(x: bounds.size.width / 2 - textSize.width / 2, y: bounds.size.height / 2 - textSize.height / 2), withAttributes: attributes)
             
             return
         }
@@ -123,25 +107,25 @@ public class CDCodabarView: UIView {
         barColor.setFill()
         
         let multiplier: CGFloat = 1.25
-        let labelHeight = ceil(code.boundingRectWithSize(CGSize(width: bounds.size.width, height: CGFloat.max), options: [.TruncatesLastVisibleLine, .UsesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil).height)
+        let labelHeight = ceil(code.boundingRect(with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil).height)
         let barHeight = bounds.size.height - (hideCode ? 0 : labelHeight + padding)
         let sequence = barSequence()
         
         var narrow = 0
         var wide = 0
         
-        for var i = 0; i < sequence.characters.count; i++ {
+        for i in 0 ..< sequence.characters.count {
             if sequence[i] == "0" {
-                narrow++
+                narrow += 1
             } else {
                 if i < sequence.characters.count - 1 {
                     if sequence[i + 1] == "1" {
-                        wide++
+                        wide += 1
                     } else {
-                        narrow++
+                        narrow += 1
                     }
                 } else {
-                    narrow++
+                    narrow += 1
                 }
             }
         }
@@ -150,7 +134,7 @@ public class CDCodabarView: UIView {
         
         var x: CGFloat = 0.0
         
-        for var i = 0; i < sequence.characters.count; i++ {
+        for i in 0 ..< sequence.characters.count {
             if sequence[i] == "0" {
                 x += barWidth
             } else {
@@ -169,14 +153,14 @@ public class CDCodabarView: UIView {
         }
         
         if !hideCode {
-            (code as NSString).drawInRect(CGRect(x: 0, y: barHeight + padding, width: x, height: labelHeight), withAttributes: attributes)
+            (code as NSString).draw(in: CGRect(x: 0, y: barHeight + padding, width: x, height: labelHeight), withAttributes: attributes)
         }
     }
     
     private func barSequence() -> String {
         var barSequence = ""
         
-        for var i = 0; i < code.characters.count; i++ {
+        for i in 0 ..< code.characters.count {
             barSequence += barcodeEncoding[String(code[i])]!
             if i < code.characters.count - 1 {
                 barSequence += "0"
@@ -186,37 +170,32 @@ public class CDCodabarView: UIView {
         return barSequence
     }
     
-    private func codeIsValid() -> Bool {
-        let validLength = code.characters.count >= 3 && code.characters.count <= 16
-        var validStart = true
-        var validStop = true
-        var validMiddle = true
+    private func isCodeValid() -> Bool {
+        guard code.characters.count >= 3 && code.characters.count <= 16 else { return false }
         
-        if validLength {
-            let start = code[0].toUpper()
-            let stop = code[code.characters.count - 1].toUpper()
-            let middle = String(code.characters.dropFirst().dropLast())
-            
-            validStart = start >= "A" && start <= "D"
-            validStop = stop >= "A" && stop <= "D"
-            
-            for char in middle.characters {
-                if !barcodeEncoding.keys.contains(String(char)) {
-                    validMiddle = false
-                    break
-                }
+        let startChar = code[0].toUpper()
+        let stopChar = code[code.characters.count - 1].toUpper()
+        let middleString = String(code.characters.dropFirst().dropLast())
+        
+        let isValidStart = startChar >= "A" && startChar <= "D"
+        let isValidStop = stopChar >= "A" && stopChar <= "D"
+        var isValidMiddle = true
+        
+        for char in middleString.characters {
+            if !barcodeEncoding.keys.contains(String(char)) {
+                isValidMiddle = false
+                break
             }
         }
         
-        return validLength && validStart && validStop && validMiddle
+        return isValidStart && isValidStop && isValidMiddle
     }
-    
 }
 
-extension String {
+private extension String {
     
     subscript (i: Int) -> Character {
-        return self[self.startIndex.advancedBy(i)]
+        return self[self.characters.index(self.startIndex, offsetBy: i)]
     }
     
     subscript (i: Int) -> String {
@@ -224,15 +203,13 @@ extension String {
     }
     
     subscript (r: Range<Int>) -> String {
-        return substringWithRange(Range(start: startIndex.advancedBy(r.startIndex), end: startIndex.advancedBy(r.endIndex)))
+        return substring(with: (characters.index(startIndex, offsetBy: r.lowerBound) ..< characters.index(startIndex, offsetBy: r.upperBound)))
     }
-    
 }
 
-extension Character {
+private extension Character {
     
     func toUpper() -> Character {
-        return String(self).uppercaseString.characters.first!
+        return String(self).uppercased().characters.first!
     }
-    
 }

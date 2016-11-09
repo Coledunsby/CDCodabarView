@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:CDCodabarView.xcodeproj">
+      location = "self:/Users/cole.dunsby/Git/CDCodabarView/CDCodabarViewExample.xcodeproj">
    </FileRef>
 </Workspace>

@@ -3,7 +3,7 @@
 //  CDCodabarViewSample
 //
 //  Created by Cole Dunsby on 2015-12-21.
-//  Copyright © 2015 Cole Dunsby. All rights reserved.
+//  Copyright © 2016 Cole Dunsby. All rights reserved.
 //
 
 import UIKit
@@ -13,9 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
     }
-    
 }
 
