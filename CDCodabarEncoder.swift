@@ -74,7 +74,7 @@ private struct Constants {
 public struct CDCodabarEncoder {
     let code: String
 
-    init?(code: String) {
+    public init?(code: String) {
         // validate width
         guard code.characters.count >= Constants.minimumLength
             && code.characters.count <= Constants.maximumLength else {
@@ -108,7 +108,7 @@ public struct CDCodabarEncoder {
     /// Each character is separated by `0`.
     ///
     /// - Returns: Returns array of integer representing bits
-    func sequence() -> [Int] {
+    public func sequence() -> [Int] {
         return code.characters
             .map { Constants.barcodeEncoding[ $0 ]!}
             .joined(separator: [0])
