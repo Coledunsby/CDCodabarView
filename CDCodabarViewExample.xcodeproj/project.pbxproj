@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2092DBCB1E9BC13000B735A5 /* CDCodabarEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2092DBCA1E9BC13000B735A5 /* CDCodabarEncoder.swift */; };
+		2092DBD31E9BC1B300B735A5 /* EncoderSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2092DBD21E9BC1B300B735A5 /* EncoderSpecs.swift */; };
 		252518E51DD3BB9B00F770A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252518DF1DD3BB9B00F770A3 /* AppDelegate.swift */; };
 		252518E61DD3BB9B00F770A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 252518E01DD3BB9B00F770A3 /* Images.xcassets */; };
 		252518E81DD3BB9B00F770A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252518E21DD3BB9B00F770A3 /* LaunchScreen.storyboard */; };
@@ -16,8 +17,21 @@
 		252518EE1DD3BDDB00F770A3 /* CDCodabarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252518ED1DD3BDDB00F770A3 /* CDCodabarView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2092DBD51E9BC1B300B735A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = CDCodabarView_Example;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		2092DBCA1E9BC13000B735A5 /* CDCodabarEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDCodabarEncoder.swift; sourceTree = "<group>"; };
+		2092DBD01E9BC1B300B735A5 /* CDCodabarViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDCodabarViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2092DBD21E9BC1B300B735A5 /* EncoderSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderSpecs.swift; sourceTree = "<group>"; };
+		2092DBD41E9BC1B300B735A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		252518DF1DD3BB9B00F770A3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		252518E01DD3BB9B00F770A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		252518E11DD3BB9B00F770A3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,6 +43,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2092DBCD1E9BC1B300B735A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -39,6 +60,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2092DBD11E9BC1B300B735A5 /* CDCodabarViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				2092DBD21E9BC1B300B735A5 /* EncoderSpecs.swift */,
+				2092DBD41E9BC1B300B735A5 /* Info.plist */,
+			);
+			path = CDCodabarViewTests;
+			sourceTree = "<group>";
+		};
 		252518DE1DD3BB9B00F770A3 /* CDCodabarViewExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +88,7 @@
 				252518ED1DD3BDDB00F770A3 /* CDCodabarView.swift */,
 				2092DBCA1E9BC13000B735A5 /* CDCodabarEncoder.swift */,
 				252518DE1DD3BB9B00F770A3 /* CDCodabarViewExample */,
+				2092DBD11E9BC1B300B735A5 /* CDCodabarViewTests */,
 				607FACD11AFB9204008FA782 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* CDCodabarView_Example.app */,
+				2092DBD01E9BC1B300B735A5 /* CDCodabarViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,6 +105,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2092DBCF1E9BC1B300B735A5 /* CDCodabarViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2092DBD71E9BC1B300B735A5 /* Build configuration list for PBXNativeTarget "CDCodabarViewTests" */;
+			buildPhases = (
+				2092DBCC1E9BC1B300B735A5 /* Sources */,
+				2092DBCD1E9BC1B300B735A5 /* Frameworks */,
+				2092DBCE1E9BC1B300B735A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2092DBD61E9BC1B300B735A5 /* PBXTargetDependency */,
+			);
+			name = CDCodabarViewTests;
+			productName = CDCodabarViewTests;
+			productReference = 2092DBD01E9BC1B300B735A5 /* CDCodabarViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		607FACCF1AFB9204008FA782 /* CDCodabarView_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CDCodabarView_Example" */;
@@ -96,10 +146,16 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					2092DBCF1E9BC1B300B735A5 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = B3YTJ78KXJ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = JU6JS2KXPW;
@@ -121,11 +177,19 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* CDCodabarView_Example */,
+				2092DBCF1E9BC1B300B735A5 /* CDCodabarViewTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2092DBCE1E9BC1B300B735A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,6 +203,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2092DBCC1E9BC1B300B735A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2092DBD31E9BC1B300B735A5 /* EncoderSpecs.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,7 +224,53 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		2092DBD61E9BC1B300B735A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* CDCodabarView_Example */;
+			targetProxy = 2092DBD51E9BC1B300B735A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		2092DBD81E9BC1B300B735A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = B3YTJ78KXJ;
+				INFOPLIST_FILE = CDCodabarViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appunite.CDCodabarViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CDCodabarView_Example.app/CDCodabarView_Example";
+			};
+			name = Debug;
+		};
+		2092DBD91E9BC1B300B735A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = B3YTJ78KXJ;
+				INFOPLIST_FILE = CDCodabarViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appunite.CDCodabarViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CDCodabarView_Example.app/CDCodabarView_Example";
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -274,6 +392,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2092DBD71E9BC1B300B735A5 /* Build configuration list for PBXNativeTarget "CDCodabarViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2092DBD81E9BC1B300B735A5 /* Debug */,
+				2092DBD91E9BC1B300B735A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "CDCodabarViewExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
