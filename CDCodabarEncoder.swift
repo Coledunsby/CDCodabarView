@@ -71,7 +71,7 @@ private struct Constants {
     ]
 }
 
-struct CDCodabarEncoder {
+public struct CDCodabarEncoder {
     let code: String
 
     init?(code: String) {
