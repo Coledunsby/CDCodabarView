@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet private weak var heightLabel: UILabel!
     @IBOutlet private weak var widthLabel: UILabel!

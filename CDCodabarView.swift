@@ -3,27 +3,29 @@
 //  CDCodabarViewSample
 //
 //  Created by Cole Dunsby on 2015-12-21.
-//  Copyright © 2016 Cole Dunsby. All rights reserved.
+//  Copyright © 2017 Cole Dunsby. All rights reserved.
 //
 
 import UIKit
 
 @IBDesignable
-public class CDCodabarView: UIView {
+public final class CDCodabarView: UIView {
 
-    @IBInspectable public var barColor: UIColor = .black { didSet { setNeedsDisplay() }}
-    @IBInspectable public var textColor: UIColor = .black { didSet { setNeedsDisplay() }}
+    @IBInspectable public var barColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) { didSet { setNeedsDisplay() }}
+    @IBInspectable public var textColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) { didSet { setNeedsDisplay() }}
     @IBInspectable public var padding: CGFloat = 2.0 { didSet { setNeedsDisplay() }}
     @IBInspectable public var hideCode: Bool = false { didSet { setNeedsDisplay() }}
+    
     @IBInspectable public var code: String = "A123456789B" {
         didSet {
-            encoder = CDCodabarEncoder(code: code)
+            encoder = try? CDCodabarEncoder(code: code)
             setNeedsDisplay()
         }
     }
     
-    private var encoder: CDCodabarEncoder?
     public var font = UIFont.systemFont(ofSize: 15.0) { didSet { setNeedsDisplay() }}
+    
+    private var encoder: CDCodabarEncoder?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,43 +36,53 @@ public class CDCodabarView: UIView {
     }
     
     override public func draw(_ rect: CGRect) {
-        let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         
-        let attributes = [
+        let attributes: [String: Any] = [
             NSFontAttributeName: font,
             NSForegroundColorAttributeName: textColor,
             NSParagraphStyleAttributeName: paragraphStyle,
-            ] as [String : Any]
+        ]
         
         guard let encoder = encoder else {
-           
-            
             let text = "Invalid Code"
-            let textSize = text.boundingRect(with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil)
             
-            text.draw(at: CGPoint(x: bounds.size.width / 2 - textSize.width / 2, y: bounds.size.height / 2 - textSize.height / 2), withAttributes: attributes)
+            let textSize = text.boundingRect(
+                with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude),
+                options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin],
+                attributes: [NSFontAttributeName: font],
+                context: nil
+            )
+            
+            text.draw(
+                at: CGPoint(x: bounds.size.width / 2 - textSize.width / 2, y: bounds.size.height / 2 - textSize.height / 2),
+                withAttributes: attributes
+            )
             
             return
         }
 
-        
         barColor.setFill()
         
-        let multiplier: CGFloat = 1.25
-        let labelHeight = ceil(code.boundingRect(with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil).height)
+        let multiplier = CGFloat(1.25)
+        let labelHeight = ceil(code.boundingRect(
+            with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude),
+            options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin],
+            attributes: [NSFontAttributeName: font],
+            context: nil).height)
         let barHeight = bounds.size.height - (hideCode ? 0 : labelHeight + padding)
         let sequence = encoder.sequence()
         
         var narrow = 0
         var wide = 0
         
-        for i in 0 ..< sequence.count {
-            if sequence[i] == 0 {
+        (0 ..< sequence.count).forEach {
+            if sequence[$0] == 0 {
                 narrow += 1
             } else {
-                if i < sequence.count - 1 {
-                    if sequence[i + 1] == 1 {
+                if $0 < sequence.count - 1 {
+                    if sequence[$0 + 1] == 1 {
                         wide += 1
                     } else {
                         narrow += 1
@@ -81,18 +93,17 @@ public class CDCodabarView: UIView {
             }
         }
         
-        let barWidth: CGFloat = bounds.size.width / (CGFloat(narrow) + multiplier * CGFloat(wide))
+        let barWidth = CGFloat(bounds.size.width / (CGFloat(narrow) + multiplier * CGFloat(wide)))
+        var x = CGFloat(0)
         
-        var x: CGFloat = 0.0
-        
-        for i in 0 ..< sequence.count {
-            if sequence[i] == 0 {
+        (0 ..< sequence.count).forEach {
+            if sequence[$0] == 0 {
                 x += barWidth
             } else {
                 var customBarWidth = barWidth
                 
-                if i < sequence.count - 1 {
-                    if sequence[i + 1] == 1 {
+                if $0 < sequence.count - 1 {
+                    if sequence[$0 + 1] == 1 {
                         customBarWidth *= multiplier
                     }
                 }
@@ -104,7 +115,10 @@ public class CDCodabarView: UIView {
         }
         
         if !hideCode {
-            (code as NSString).draw(in: CGRect(x: 0, y: barHeight + padding, width: x, height: labelHeight), withAttributes: attributes)
+            code.draw(
+                in: CGRect(x: 0, y: barHeight + padding, width: x, height: labelHeight),
+                withAttributes: attributes
+            )
         }
     }
 }

@@ -43,65 +43,67 @@ import Foundation
  
 *********************************************************************/
 
-private struct Constants {
-    static let minimumLength = 3
-    static let maximumLength = 16
-    
-     static let barcodeEncoding: [Character: [Int]] = [
-        "0": [1, 0, 1, 0, 1, 0, 0, 1, 1],
-        "1": [1, 0, 1, 0, 1, 1, 0, 0, 1],
-        "2": [1, 0, 1, 0, 0, 1, 0, 1, 1],
-        "3": [1, 1, 0, 0, 1, 0, 1, 0, 1],
-        "4": [1, 0, 1, 1, 0, 1, 0, 0, 1],
-        "5": [1, 1, 0, 1, 0, 1, 0, 0, 1],
-        "6": [1, 0, 0, 1, 0, 1, 0, 1, 1],
-        "7": [1, 0, 0, 1, 0, 1, 1, 0, 1],
-        "8": [1, 0, 0, 1, 1, 0, 1, 0, 1],
-        "9": [1, 1, 0, 1, 0, 0, 1, 0, 1],
-        "-": [1, 0, 1, 0, 0, 1, 1, 0, 1],
-        "$": [1, 0, 1, 1, 0, 0, 1, 0, 1],
-        ":": [1, 1, 0, 1, 0, 1, 1, 0, 1, 1],
-        "/": [1, 1, 0, 1, 1, 0, 1, 0, 1, 1],
-        ".": [1, 1, 0, 1, 1, 0, 1, 1, 0, 1],
-        "+": [1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1],
-        "A": [1, 0, 1, 1, 0, 0, 1, 0, 0, 1],
-        "B": [1, 0, 1, 0, 0, 1, 0, 0, 1, 1],
-        "C": [1, 0, 0, 1, 0, 0, 1, 0, 1, 1],
-        "D": [1, 0, 1, 0, 0, 1, 1, 0, 0, 1]
-    ]
-}
-
 public struct CDCodabarEncoder {
-    let code: String
-
-    public init?(code: String) {
-        // validate width
-        guard code.characters.count >= Constants.minimumLength
-            && code.characters.count <= Constants.maximumLength else {
-            return nil
+    
+    private struct Constants {
+        
+        static let minLength = 3
+        static let maxLength = 16
+        
+        static let encodings: [Character: [Int]] = [
+            "0": [1, 0, 1, 0, 1, 0, 0, 1, 1],
+            "1": [1, 0, 1, 0, 1, 1, 0, 0, 1],
+            "2": [1, 0, 1, 0, 0, 1, 0, 1, 1],
+            "3": [1, 1, 0, 0, 1, 0, 1, 0, 1],
+            "4": [1, 0, 1, 1, 0, 1, 0, 0, 1],
+            "5": [1, 1, 0, 1, 0, 1, 0, 0, 1],
+            "6": [1, 0, 0, 1, 0, 1, 0, 1, 1],
+            "7": [1, 0, 0, 1, 0, 1, 1, 0, 1],
+            "8": [1, 0, 0, 1, 1, 0, 1, 0, 1],
+            "9": [1, 1, 0, 1, 0, 0, 1, 0, 1],
+            "-": [1, 0, 1, 0, 0, 1, 1, 0, 1],
+            "$": [1, 0, 1, 1, 0, 0, 1, 0, 1],
+            ":": [1, 1, 0, 1, 0, 1, 1, 0, 1, 1],
+            "/": [1, 1, 0, 1, 1, 0, 1, 0, 1, 1],
+            ".": [1, 1, 0, 1, 1, 0, 1, 1, 0, 1],
+            "+": [1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1],
+            "A": [1, 0, 1, 1, 0, 0, 1, 0, 0, 1],
+            "B": [1, 0, 1, 0, 0, 1, 0, 0, 1, 1],
+            "C": [1, 0, 0, 1, 0, 0, 1, 0, 1, 1],
+            "D": [1, 0, 1, 0, 0, 1, 1, 0, 0, 1]
+        ]
+    }
+    
+    enum Error: Swift.Error {
+        
+        case invalidLength
+        case invalidStartCharacter
+        case invalidEndCharacter
+        case invalidIntermediateCharacter
+    }
+    
+    private let code: String
+    
+    public init(code: String) throws {
+        let code = code.uppercased()
+        
+        guard (Constants.minLength ... Constants.maxLength) ~= code.characters.count else {
+            throw Error.invalidLength
         }
-
-        // uppercase representation
-        let uppercaseCode = code.uppercased()
-
-        // validate start character
-        guard let startChar = uppercaseCode.characters.first, startChar >= "A" && startChar <= "D" else {
-            return nil
+        
+        guard let startChar = code.characters.first, ("A" ... "D") ~= startChar else {
+            throw Error.invalidStartCharacter
         }
-
-        // validate stop character
-        guard let stopChar = uppercaseCode.characters.last, stopChar >= "A" && stopChar <= "D" else {
-            return nil
+        
+        guard let stopChar = code.characters.last, ("A" ... "D") ~= stopChar else {
+            throw Error.invalidEndCharacter
         }
-
-        // validate characters
-        let invalidChar = uppercaseCode.characters.first { !Constants.barcodeEncoding.keys.contains($0) }
-        if invalidChar != nil {
-            return nil
+        
+        guard code.characters.filter({ !Constants.encodings.keys.contains($0) }).isEmpty else {
+            throw Error.invalidIntermediateCharacter
         }
-
-        // save valid code
-        self.code = uppercaseCode
+        
+        self.code = code
     }
 
     /// Return sequence of bits representing Codabar
@@ -110,7 +112,7 @@ public struct CDCodabarEncoder {
     /// - Returns: Returns array of integer representing bits
     public func sequence() -> [Int] {
         return code.characters
-            .map { Constants.barcodeEncoding[ $0 ]!}
+            .map { Constants.encodings[$0]! }
             .joined(separator: [0])
             .flatMap { $0 }
     }
