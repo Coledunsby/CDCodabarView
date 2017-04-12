@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
     s.platform          = :ios, "9.0"
     s.requires_arc      = true
     s.source            = { :git => "https://github.com/Coledunsby/CDCodabarView.git", :tag => "v/#{s.version}" }
-    s.source_files      = "CDCodabarView.swift"
+    s.source_files      = "*.swift"
     s.module_name       = s.name
 end
