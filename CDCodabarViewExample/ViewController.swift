@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  CDCodabarViewSample
-//
-//  Created by Cole Dunsby on 2015-12-21.
-//  Copyright © 2016 Cole Dunsby. All rights reserved.
-//
-
 import UIKit
 
 final class ViewController: UIViewController {

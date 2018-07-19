@@ -9,12 +9,15 @@
 import UIKit
 
 @IBDesignable
-public final class CDCodabarView: UIView {
+open class CDCodabarView: UIView {
 
+    // MARK: - Inspectable Properties
+    
     @IBInspectable public var barColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) { didSet { setNeedsDisplay() }}
     @IBInspectable public var textColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) { didSet { setNeedsDisplay() }}
     @IBInspectable public var padding: CGFloat = 2.0 { didSet { setNeedsDisplay() }}
     @IBInspectable public var hideCode: Bool = false { didSet { setNeedsDisplay() }}
+    @IBInspectable public var invalidText: String = "Invalid Code" { didSet { setNeedsDisplay() }}
     
     @IBInspectable public var code: String = "A123456789B" {
         didSet {
@@ -23,9 +26,15 @@ public final class CDCodabarView: UIView {
         }
     }
     
+    // MARK: - Public Properties
+    
     public var font = UIFont.systemFont(ofSize: 15.0) { didSet { setNeedsDisplay() }}
     
+    // MARK: - Private Properties
+    
     private var encoder: CDCodabarEncoder?
+    
+    // MARK: - Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,27 +44,25 @@ public final class CDCodabarView: UIView {
         super.init(coder: aDecoder)
     }
     
-    override public func draw(_ rect: CGRect) {
+    override open func draw(_ rect: CGRect) {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         
         let attributes: [NSAttributedStringKey: Any] = [
-            NSAttributedStringKey.font: font,
-            NSAttributedStringKey.foregroundColor: textColor,
-            NSAttributedStringKey.paragraphStyle: paragraphStyle,
+            .font: font,
+            .foregroundColor: textColor,
+            .paragraphStyle: paragraphStyle
         ]
         
         guard let encoder = encoder else {
-            let text = "Invalid Code"
-            
-            let textSize = text.boundingRect(
+            let textSize = invalidText.boundingRect(
                 with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude),
                 options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin],
-                attributes: [NSAttributedStringKey.font: font],
+                attributes: [.font: font],
                 context: nil
             )
             
-            text.draw(
+            invalidText.draw(
                 at: CGPoint(x: bounds.size.width / 2 - textSize.width / 2, y: bounds.size.height / 2 - textSize.height / 2),
                 withAttributes: attributes
             )

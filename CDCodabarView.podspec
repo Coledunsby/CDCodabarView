@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = "CDCodabarView"
-    s.version           = "1.0.0"
+    s.version           = "1.1.0"
     s.summary           = "Codabar Barcode Generator for iOS."
     s.homepage          = "https://github.com/Coledunsby/CDCodabarView"
     s.authors           = { "Cole Dunsby" => "coledunsby@gmail.com" }

@@ -1,61 +1,51 @@
-//
-//  CDCodabarViewTests.swift
-//  CDCodabarViewTests
-//
-//  Created by Emil Wojtaszek on 10/04/2017.
-//  Copyright © 2017 CocoaPods. All rights reserved.
-//
-
+@testable import CDCodabarViewExample
 import XCTest
 
-@testable import CDCodabarView_Example
+final class CDCodabarViewTests: XCTestCase {
 
-class CDCodabarViewTests: XCTestCase {
-
-    func testThatZeroLetterCodeIsInvalid() {
+    func testEmptyCodeInvalid() {
         let encoder = try? CDCodabarEncoder(code: "")
         XCTAssertNil(encoder)
     }
 
-    func testThat1LetterCodeIsInvalid() {
+    func test1LetterCodeInvalid() {
         let encoder = try? CDCodabarEncoder(code: "A")
         XCTAssertNil(encoder)
     }
 
-    func testThat2LettersCodeIsInvalid() {
+    func test2LetterCodeInvalid() {
         let encoder = try? CDCodabarEncoder(code: "A0")
         XCTAssertNil(encoder)
     }
 
-    func testThat3LettersCodeIsValid() {
+    func test3LetterCodeValid() {
         let encoder = try? CDCodabarEncoder(code: "A0B")
         XCTAssertNotNil(encoder)
     }
 
-    func testThat17LettersCodeIsInvalid() {
+    func test17LetterCodeInvalid() {
         let encoder = try? CDCodabarEncoder(code: "A000000000000000B")
         XCTAssertNil(encoder)
     }
 
-    func testThatCodeWithWrongStartLetterIsInvalid() {
+    func testStartLetterInvalid() {
         let encoder = try? CDCodabarEncoder(code: "E00000000000B")
         XCTAssertNil(encoder)
     }
 
-    func testThatCodeWithWrongStopLetterIsInvalid() {
+    func testStopLetterInvalid() {
         let encoder = try? CDCodabarEncoder(code: "A00000000000E")
         XCTAssertNil(encoder)
     }
 
-    func testThreeCodeWithUnsupportedCharacterIsInvalid() {
+    func testUnsupportedCharacterInvalid() {
         let encoder = try? CDCodabarEncoder(code: "A!B")
         XCTAssertNil(encoder)
     }
 
-    func testExampleSequance() {
-        let encoder = try? CDCodabarEncoder(code: "A012B")
-        XCTAssertNotNil(encoder)
-        XCTAssertEqual(encoder!.sequence(), [
+    func testExampleSequence() throws {
+        let encoder = try CDCodabarEncoder(code: "A012B")
+        let expected = [
             1, 0, 1, 1, 0, 0, 1, 0, 0, 1,
             0,
             1, 0, 1, 0, 1, 0, 0, 1, 1,
@@ -64,6 +54,8 @@ class CDCodabarViewTests: XCTestCase {
             0,
             1, 0, 1, 0, 0, 1, 0, 1, 1,
             0,
-            1, 0, 1, 0, 0, 1, 0, 0, 1, 1])
+            1, 0, 1, 0, 0, 1, 0, 0, 1, 1
+        ]
+        XCTAssertEqual(encoder.sequence(), expected)
     }
 }

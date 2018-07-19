@@ -43,12 +43,14 @@ import Foundation
  
 *********************************************************************/
 
-public struct CDCodabarEncoder {
+struct CDCodabarEncoder {
     
-    private struct Constants {
+    private enum Constants {
         
-        static let minLength = 3
-        static let maxLength = 16
+        enum Length {
+            static let min = 3
+            static let max = 16
+        }
         
         static let encodings: [Character: [Int]] = [
             "0": [1, 0, 1, 0, 1, 0, 0, 1, 1],
@@ -75,11 +77,10 @@ public struct CDCodabarEncoder {
     }
     
     enum Error: Swift.Error {
-        
-        case invalidLength
-        case invalidStartCharacter
-        case invalidEndCharacter
-        case invalidIntermediateCharacter
+        case length
+        case startCharacter
+        case endCharacter
+        case intermediateCharacter
     }
     
     private let code: String
@@ -87,20 +88,20 @@ public struct CDCodabarEncoder {
     public init(code: String) throws {
         let code = code.uppercased()
         
-        guard (Constants.minLength ... Constants.maxLength) ~= code.characters.count else {
-            throw Error.invalidLength
+        guard (Constants.Length.min ... Constants.Length.max) ~= code.count else {
+            throw Error.length
         }
         
-        guard let startChar = code.characters.first, ("A" ... "D") ~= startChar else {
-            throw Error.invalidStartCharacter
+        guard let startChar = code.first, ("A" ... "D") ~= startChar else {
+            throw Error.startCharacter
         }
         
-        guard let stopChar = code.characters.last, ("A" ... "D") ~= stopChar else {
-            throw Error.invalidEndCharacter
+        guard let stopChar = code.last, ("A" ... "D") ~= stopChar else {
+            throw Error.endCharacter
         }
         
-        guard code.characters.filter({ !Constants.encodings.keys.contains($0) }).isEmpty else {
-            throw Error.invalidIntermediateCharacter
+        guard code.filter({ !Constants.encodings.keys.contains($0) }).isEmpty else {
+            throw Error.intermediateCharacter
         }
         
         self.code = code
@@ -111,9 +112,9 @@ public struct CDCodabarEncoder {
     ///
     /// - Returns: Returns array of integer representing bits
     public func sequence() -> [Int] {
-        return code.characters
+        return code
             .map { Constants.encodings[$0]! }
             .joined(separator: [0])
-            .flatMap { $0 }
+            .compactMap { $0 }
     }
 }
