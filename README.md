@@ -10,7 +10,7 @@
 
 CDCodabarView is a [Codabar](https://en.wikipedia.org/wiki/Codabar) barcode generator for iOS.
 
-It is written in Swift 3 and uses `IBDesignable`, `IBInspectable` and Core Graphics.
+It is written in Swift 4 and uses `IBDesignable`, `IBInspectable` and Core Graphics.
 
 
 ## Installation
@@ -21,7 +21,7 @@ CDCodabarView is available through [CocoaPods](http://cocoapods.org). To install
 pod 'CDCodabarView'
 ```
 
-Alternatively, you can install it manually by copying the file `CDCodabarView.swift` into your project.
+Alternatively, you can install it manually by copying `CDCodabarView.swift` and `CDCodabarEncoder.swift` into your project.
 
 
 ## Usage (Storyboards)
@@ -64,6 +64,8 @@ Alternatively, you can install it manually by copying the file `CDCodabarView.sw
     ```
     view.addSubview(codabarView)
     ```
+
+See the example project for more usage examples.
 
 ## Author
 
