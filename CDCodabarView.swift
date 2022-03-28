@@ -48,7 +48,7 @@ open class CDCodabarView: UIView {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         
-        let attributes: [NSAttributedStringKey: Any] = [
+        let attributes: [NSAttributedString.Key: Any] = [
             .font: font,
             .foregroundColor: textColor,
             .paragraphStyle: paragraphStyle
@@ -76,7 +76,7 @@ open class CDCodabarView: UIView {
         let labelHeight = ceil(code.boundingRect(
             with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude),
             options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin],
-            attributes: [NSAttributedStringKey.font: font],
+            attributes: [NSAttributedString.Key.font: font],
             context: nil).height)
         let barHeight = bounds.size.height - (hideCode ? 0 : labelHeight + padding)
         let sequence = encoder.sequence()
