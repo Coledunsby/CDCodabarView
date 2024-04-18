@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
     s.license           = { :type => "MIT", :file => 'LICENSE' }
     s.platform          = :ios, "12.0"
     s.requires_arc      = true
-    s.source            = { :git => "https://github.com/Coledunsby/CDCodabarView.git", :tag => "v/#{s.version}" }
+    s.source            = { :git => "https://github.com/Coledunsby/CDCodabarView.git", :tag => "#{s.version}" }
     s.source_files      = "Sources/*.swift"
     s.module_name       = s.name
 end
