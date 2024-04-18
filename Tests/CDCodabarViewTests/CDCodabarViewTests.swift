@@ -1,4 +1,4 @@
-@testable import CDCodabarViewExample
+@testable import CDCodabarView
 import XCTest
 
 final class CDCodabarViewTests: XCTestCase {
@@ -54,7 +54,7 @@ final class CDCodabarViewTests: XCTestCase {
             0,
             1, 0, 1, 0, 0, 1, 0, 1, 1,
             0,
-            1, 0, 1, 0, 0, 1, 0, 0, 1, 1
+            1, 0, 0, 1, 0, 0, 1, 0, 1, 1
         ]
         XCTAssertEqual(encoder.sequence(), expected)
     }

@@ -15,13 +15,21 @@ It is written in Swift 5 and uses `IBDesignable`, `IBInspectable` and Core Graph
 
 ## Installation
 
+### Swift Package Manager (Recommended)
+
+Add `https://github.com/Coledunsby/CDCodabarView` as a package dependency.
+
+### CocoaPods
+
 CDCodabarView is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```
 pod 'CDCodabarView'
 ```
 
-Alternatively, you can install it manually by copying `CDCodabarView.swift` and `CDCodabarEncoder.swift` into your project.
+### Manual
+
+Copy `CDCodabarView.swift` and `CDCodabarEncoder.swift` into your project.
 
 
 ## Usage (Storyboards)
